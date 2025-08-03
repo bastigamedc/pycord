@@ -78,6 +78,7 @@ class BaseUser(_UserTag):
         "_avatar_decoration",
         "_state",
         "nameplate",
+        "primary_guild"
     )
 
     if TYPE_CHECKING:
@@ -94,6 +95,7 @@ class BaseUser(_UserTag):
         _avatar_decoration: dict | None
         _public_flags: int
         nameplate: Nameplate | None
+        primary_guild: dict | None
 
     def __init__(
         self, *, state: ConnectionState, data: UserPayload | PartialUserPayload
@@ -154,6 +156,7 @@ class BaseUser(_UserTag):
         self._public_flags = data.get("public_flags", 0)
         self.bot = data.get("bot", False)
         self.system = data.get("system", False)
+        self.primary_guild = data.get("primary_guild", None)
 
     @classmethod
     def _copy(cls: type[BU], user: BU) -> BU:
@@ -544,6 +547,9 @@ class User(BaseUser, discord.abc.Messageable):
         Specifies if the user is a system user (i.e. represents Discord officially).
     nameplate: Optional[:class:`Nameplate`]
         The user's nameplate, if the user has one.
+
+    primary_guild: Optional[:class:`dict`]
+        The user's primary guild, if the user has one.
 
         .. versionadded:: 2.7
     """
