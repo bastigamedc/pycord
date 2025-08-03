@@ -549,7 +549,7 @@ class User(BaseUser, discord.abc.Messageable):
     nameplate: Optional[:class:`Nameplate`]
         The user's nameplate, if the user has one.
 
-    primary_guild: Optional[:class:`dict`]
+    primary_guild: Optional[:class:`PrimaryGuild`]
         The user's primary guild, if the user has one.
 
         .. versionadded:: 2.7

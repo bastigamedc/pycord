@@ -22,12 +22,6 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 """
 
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from .state import ConnectionState
-
-from .asset import Asset
 from .types.primary_guild import PrimaryGuild as PrimaryGuildPayload
 
 
