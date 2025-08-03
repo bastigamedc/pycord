@@ -601,6 +601,12 @@ class User(BaseUser, discord.abc.Messageable):
         return self._state._get_private_channel_by_user(self.id)
 
     @property
+    def primary_guid(self) -> PrimaryGuild | None:
+        """Returns the primary guild if it exists.
+        """
+        return self.primary_guild
+
+    @property
     def mutual_guilds(self) -> list[Guild]:
         """The guilds that the user shares with the client.
 
